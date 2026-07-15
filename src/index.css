@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-display: 'Space Grotesk', sans-serif;
+  --font-body: 'Inter', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  --color-ink: #0B0F14;
+  --color-surface: #131A22;
+  --color-surface-raised: #1B2430;
+  --color-border: #262F3B;
+  --color-text: #E4E9EE;
+  --color-text-muted: #8592A0;
+
+  --color-up: #3DDC84;
+  --color-down: #FF5C5C;
+  --color-slow: #FFB84D;
+  --color-unknown: #4C5A6B;
+  --color-accent: #4C7EFF;
+}
+
+body {
+  background-color: var(--color-ink);
+  color: var(--color-text);
+  font-family: var(--font-body);
+}
+
+/* Signature element: the pulse ring on each API status dot */
+@keyframes pulse-ring {
+  0% { box-shadow: 0 0 0 0 currentColor; opacity: 0.7; }
+  100% { box-shadow: 0 0 0 8px currentColor; opacity: 0; }
+}
+
+.status-pulse::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 9999px;
+  animation: pulse-ring 1.8s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
